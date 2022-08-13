@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import RegisterForm from "./RegisterForm";
 import { useNavigate } from "react-router-dom";
+import isDev from "../../adapters/detectType";
 
 const Register = () => {
   const [error, setError] = useState();
@@ -16,7 +17,7 @@ const Register = () => {
       return;
     }
     try {
-      const data = await axios.post("http://localhost:4000/user", {
+      const data = await axios.post(`${isDev()}/user`, {
         username: obj.username,
         password: obj.password,
       });

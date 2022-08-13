@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import HouseContainer from "../../components/HouseContainer";
+import isDev from "../../adapters/detectType";
 
 const ShowHouses = () => {
   const [houses, setHouses] = useState([]);
@@ -14,7 +15,7 @@ const ShowHouses = () => {
 
   useEffect(() => {
     const config = {
-      url: "http://localhost:4000/house",
+      url: `${isDev()}/house`,
       method: "get",
       headers: {
         auth: localStorage.getItem("id"),

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import isDev from "../adapters/detectType";
 
 const HouseHasCalled = (props) => {
   const [hasCalled, setHasCalled] = useState(props.hasCalled);
@@ -8,7 +9,7 @@ const HouseHasCalled = (props) => {
     setHasCalled(event.target.checked);
     try {
       const config = {
-        url: "http://localhost:4000/house/updateHasCalled",
+        url: `${isDev()}/house/updateHasCalled`,
         method: "post",
         headers: {
           auth: localStorage.getItem("id"),

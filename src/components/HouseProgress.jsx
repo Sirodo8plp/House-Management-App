@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import isDev from "../adapters/detectType";
 
 const HouseProgress = (props) => {
   const [progress, setProgress] = useState(props.progress);
@@ -8,7 +9,7 @@ const HouseProgress = (props) => {
     setProgress(event.target.checked);
     try {
       const config = {
-        url: "http://localhost:4000/house/updateIsProgress",
+        url: `${isDev()}/house/updateIsProgress`,
         method: "post",
         headers: {
           auth: localStorage.getItem("id"),

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import NewHouseForm from "./NewHouseForm";
+import isDev from "../../adapters/detectType";
 
 const AddNewHouse = () => {
   const [error, setError] = useState();
@@ -9,7 +10,7 @@ const AddNewHouse = () => {
   const NewHouse = async (obj) => {
     try {
       const config = {
-        url: "http://localhost:4000/house",
+        url: `${isDev()}/house`,
         method: "post",
         headers: {
           auth: localStorage.getItem("id"),

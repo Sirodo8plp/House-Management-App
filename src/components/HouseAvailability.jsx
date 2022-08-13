@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import isDev from "../adapters/detectType";
 const HouseAvailability = (props) => {
   const [isAvailable, setIsAvailable] = useState(props.isAvailable);
 
@@ -14,7 +14,7 @@ const HouseAvailability = (props) => {
     props.setHouses(houses);
     try {
       const config = {
-        url: "http://localhost:4000/house/updateIsAvailable",
+        url: `${isDev()}/house/updateIsAvailable`,
         method: "post",
         headers: {
           auth: localStorage.getItem("id"),

@@ -2,6 +2,7 @@ import axios from "axios";
 import LoginForm from "./LoginForm";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import isDev from "../../adapters/detectType";
 
 const Login = () => {
   const [error, setError] = useState();
@@ -16,7 +17,7 @@ const Login = () => {
       return;
     }
     try {
-      const data = await axios.post("http://localhost:4000/user/login", {
+      const data = await axios.post(`${isDev()}/user/login`, {
         username: obj.username,
         password: obj.password,
       });
