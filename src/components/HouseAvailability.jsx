@@ -25,7 +25,7 @@ const HouseAvailability = (props) => {
           newAvailability: event.target.checked,
         }),
       };
-      const data = await axios(config);
+      await axios(config);
     } catch (error) {}
   };
 

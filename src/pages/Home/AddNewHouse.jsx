@@ -30,7 +30,7 @@ const AddNewHouse = () => {
           userId: window.localStorage.getItem("id"),
         }),
       };
-      const data = await axios(config);
+      await axios(config);
       setIsAdded(true);
     } catch (error) {
       setError("An error has occured.");

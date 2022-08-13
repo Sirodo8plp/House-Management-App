@@ -20,7 +20,7 @@ const HouseHasCalled = (props) => {
           newCall: event.target.checked,
         }),
       };
-      const data = await axios(config);
+      await axios(config);
     } catch (error) {}
     console.log(hasCalled);
   };
