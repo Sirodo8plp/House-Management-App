@@ -39,11 +39,11 @@ const HouseContainer = (props) => {
       <table className="table table-hover mt-5">
         <thead>
           <tr>
+            <th scope="col">#</th>
             <th scope="col">Availability</th>
             <th scope="col">In Progress</th>
             <th scope="col">Called</th>
             <th scope="col">Studio</th>
-            <th scope="col">Rank</th>
           </tr>
         </thead>
         <tbody>
@@ -55,6 +55,7 @@ const HouseContainer = (props) => {
                   house.isAvailable ? "table-success" : "table-danger"
                 }`}
               >
+                <td>{house.id}</td>
                 <td>
                   <HouseAvailability
                     id={house.id}
@@ -78,7 +79,6 @@ const HouseContainer = (props) => {
                   />
                 </td>
                 <td>{house.sharedRooms ? "No" : "Yes"}</td>
-                <td>{house.personalFavouriteNumber}</td>
               </tr>
             );
           })}

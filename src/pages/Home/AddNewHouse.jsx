@@ -5,7 +5,7 @@ import isDev from "../../adapters/detectType";
 
 const AddNewHouse = () => {
   const [error, setError] = useState();
-  const [isAdded, setIsAdded] = useState();
+  const [isAdded, setIsAdded] = useState(false);
 
   const NewHouse = async (obj) => {
     try {

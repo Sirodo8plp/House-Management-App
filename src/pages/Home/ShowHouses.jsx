@@ -25,7 +25,6 @@ const ShowHouses = () => {
     axios(config)
       .then((data) =>
         setHouses((oldHouses) => {
-          console.log(data);
           return [...data.data.houses];
         })
       )
