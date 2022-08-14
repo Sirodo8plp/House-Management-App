@@ -17,7 +17,7 @@ const HouseContainer = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.houses.map((house) => {
+          {props.houses.map((house, index) => {
             return (
               <tr
                 key={`hfr${house.id}`}
@@ -25,7 +25,7 @@ const HouseContainer = (props) => {
                   house.isAvailable ? "table-success" : "table-danger"
                 }`}
               >
-                <th scope="row">{house.id}</th>
+                <th scope="row">{index + 1}</th>
                 <td>{house.name}</td>
                 <td>{house.address}</td>
                 <td>{house.telephone}</td>
@@ -47,7 +47,7 @@ const HouseContainer = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.houses.map((house) => {
+          {props.houses.map((house, index) => {
             return (
               <tr
                 key={`hsr${house.id}`}
@@ -55,7 +55,7 @@ const HouseContainer = (props) => {
                   house.isAvailable ? "table-success" : "table-danger"
                 }`}
               >
-                <td>{house.id}</td>
+                <td>{index + 1}</td>
                 <td>
                   <HouseAvailability
                     id={house.id}
